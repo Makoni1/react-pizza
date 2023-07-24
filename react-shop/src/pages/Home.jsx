@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Categories from '../components/Categories';
 import Sort from '../components/Sort';
 import PizzaBlock from '../components/PizzaBlock';
@@ -14,10 +14,11 @@ export const Home = () => {
         setItems(arr);
         setIsLoading(false);
       });
+    window.scrollTo(0, 0);
   }, []);
 
   return (
-    <>
+    <div className="container">
       <div className="content__top">
         <Categories />
         <Sort />
@@ -28,7 +29,7 @@ export const Home = () => {
           ? [...new Array(6)].map((_, index) => <Skeleton key={index} />)
           : items.map((obj) => <PizzaBlock key={obj.key} {...obj} />)}
       </div>
-    </>
+    </div>
   );
 };
 
